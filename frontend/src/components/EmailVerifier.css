@@ -1,0 +1,19 @@
+.verifier-container {
+  background-color: #f0f2f5;
+  border-radius: 8px;
+  padding: 24px;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+.verifier-form { display: flex; gap: 10px; }
+.verifier-form input { flex-grow: 1; padding: 12px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc; }
+.verifier-form button { padding: 12px 20px; font-size: 16px; border-radius: 5px; border: none; cursor: pointer; background-color: #61dafb; color: #282c34; font-weight: bold; }
+.verifier-form button:disabled { background-color: #aaa; cursor: not-allowed; }
+.result-card { background-color: #fff; padding: 15px; margin-top: 20px; border-radius: 8px; text-align: left; border: 1px solid #eee; }
+.error-message { color: #d9534f; font-weight: bold; }
+pre { white-space: pre-wrap; word-wrap: break-word; font-size: 14px; background-color: #eee; padding: 10px; border-radius: 4px; color: #333; }
+details { margin-top: 10px; }
+summary { cursor: pointer; }

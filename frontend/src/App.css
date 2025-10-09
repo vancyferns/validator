@@ -1,0 +1,6 @@
+/* Add this to your existing App.css or index.css */
+.verifier-section {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
