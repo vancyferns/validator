@@ -6,7 +6,7 @@ function PhoneVerifier() {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const FLASK_API_URL = 'http://127.0.0.1:5000/api/verify-phone';
+  const FLASK_API_URL = 'https://validator-jnok.onrender.com/api/verify-phone';
 
   const handleVerify = async (e) => {
     e.preventDefault();
