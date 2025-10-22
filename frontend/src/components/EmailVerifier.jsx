@@ -7,7 +7,7 @@ function EmailVerifier() {
   const [loading, setLoading] = useState(false);
 
   // This URL points to your local Flask server's API endpoint
-  const FLASK_API_URL = 'http://127.0.0.1:5000/api/verify-email';
+  const FLASK_API_URL = 'https://validator-jnok.onrender.com/api/verify-email';
 
   const handleVerify = async (e) => {
     e.preventDefault();
