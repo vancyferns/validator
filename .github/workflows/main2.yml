@@ -1,0 +1,55 @@
+# Simple workflow to build and deploy a Vite project to GitHub Pages
+name: Deploy Vite App to GitHub Pages
+
+on:
+  # Runs on pushes to the "main" branch
+  push:
+    branches: [ "main" ] # Change to "master" if that's your default branch
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions for the GITHUB_TOKEN to allow deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out your repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20 # You can change this to your Node version
+
+      # === Key Steps for Your Structure ===
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./frontend # Tells the step to run inside the 'frontend' folder
+
+      - name: Build the React app
+        run: npm run build
+        working-directory: ./frontend # Also run the build command inside 'frontend'
+      # ====================================
+
+      - name: Upload build artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # This path MUST be relative to the repository root
+          path: ./frontend/dist 
+
+  deploy:
+    # Requires the 'build' job to succeed first
+    needs: build 
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
